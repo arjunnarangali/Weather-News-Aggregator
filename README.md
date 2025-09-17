@@ -1,97 +1,164 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Weather & News Aggregator
+A React Native application that intelligently filters news content based on current weather conditions, providing users with personalized content that adapts to local weather patterns.
 
-# Getting Started
+Overview
+This cross-platform mobile application combines real-time weather data with news aggregation, featuring an intelligent filtering system that displays different types of news based on temperature conditions. Built with React Native CLI and TypeScript for reliable performance across iOS and Android platforms.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Features
+Weather Integration
+Real-time weather data with 5-day forecast
+GPS-based automatic location detection
+Customizable temperature units (Celsius/Fahrenheit)
+Dynamic weather condition categorization
+News Filtering System
+Cold Weather (≤10°C): Displays serious/analytical news content
+Hot Weather (≥30°C): Shows alert and safety-related news
+Moderate Weather (11-29°C): Features positive and uplifting news
+Multi-category news support (Business, Technology, Health, Sports, etc.)
+India-focused news sources
+Customization Options
+User-defined temperature thresholds
+Interactive threshold adjustment controls
+News category management
+Personalized filtering preferences
+User Experience
+Intuitive bottom tab navigation
+Pull-to-refresh functionality
+Comprehensive error handling
+Loading states and user feedback
+Technology Stack
+Frontend: React Native CLI, TypeScript
+Navigation: React Navigation v6
+State Management: React Context API
+APIs: OpenWeatherMap API, NewsAPI
+Location Services: React Native Geolocation
+Prerequisites
+Node.js (v18 or higher)
+React Native CLI
+Android Studio (for Android development)
+Xcode (for iOS development, macOS only)
+API Keys from OpenWeatherMap and NewsAPI
+Installation
+Clone the repository
+bash
+   git clone git@github.com:arjunnarangali/Weather-News-Aggregator.git
+   cd Weather-News-Aggregator
+Install dependencies
+bash
+   npm install
+iOS setup (macOS only)
+bash
+   cd ios && pod install && cd ..
+Configure API keys Create src/config/apiKeys.ts:
+typescript
+   export const API_KEYS = {
+     OPENWEATHER_API_KEY: 'your_openweather_api_key',
+     NEWS_API_KEY: 'your_news_api_key',
+   };
+   
+   export const API_ENDPOINTS = {
+     WEATHER_BASE_URL: 'https://api.openweathermap.org/data/2.5',
+     NEWS_BASE_URL: 'https://newsapi.org/v2',
+   };
+Run the application
+bash
+   # Android
+   npx react-native run-android
+   
+   # iOS
+   npx react-native run-ios
+Application Workflow
+Initialization: Request location permissions and detect user location
+Data Retrieval: Fetch current weather conditions and forecast data
+Condition Analysis: Determine weather category based on temperature thresholds
+Content Filtering: Load relevant news content based on weather conditions
+Display: Present weather information and filtered news to user
+User Interaction: Allow threshold customization and category management
+Project Structure
+src/
+├── components/
+│   ├── weather/          # Weather display components
+│   └── news/             # News article components
+├── screens/
+│   ├── HomeScreen.tsx    # Main application screen
+│   └── SettingsScreen.tsx # User preferences
+├── services/
+│   ├── weatherService.ts # Weather API integration
+│   ├── newsService.ts    # News API integration
+│   └── locationService.ts # Location services
+├── context/
+│   └── AppContext.tsx    # Application state management
+├── utils/
+│   ├── weatherUtils.ts   # Weather processing logic
+│   └── newsFiltering.ts  # News filtering algorithms
+├── types/                # TypeScript type definitions
+├── config/               # Application configuration
+└── navigation/           # Navigation setup
+Configuration
+Temperature Thresholds
+Users can customize temperature ranges for weather condition classification:
 
-## Step 1: Start Metro
+Cold Threshold: Default ≤10°C (adjustable: -10°C to 25°C)
+Hot Threshold: Default ≥30°C (adjustable: 20°C to 50°C)
+Moderate Range: Automatically calculated between thresholds
+News Categories
+Available categories include:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+General
+Business
+Entertainment
+Health
+Science
+Sports
+Technology
+API Information
+OpenWeatherMap
+Free Tier: 1,000 calls/day, 60 calls/minute
+Endpoint: Current weather and 5-day forecast
+NewsAPI
+Free Tier: 500 requests/day
+Endpoint: Top headlines and search functionality
+Troubleshooting
+Common Issues
+Location Services
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Ensure location permissions are granted
+Verify GPS is enabled on device
+Check network connectivity
+News Loading
 
-```sh
-# Using npm
-npm start
+Verify API keys are correctly configured
+Check internet connection
+Ensure at least one news category is enabled
+Monitor API rate limits
+Weather Data
 
-# OR using Yarn
-yarn start
-```
+Confirm OpenWeatherMap API key validity
+Check location service permissions
+Verify network connectivity
+Debug Mode
+Enable detailed logging by adding console statements in HomeScreen.tsx:
 
-## Step 2: Build and run your app
+typescript
+console.log('Weather condition:', weatherCondition);
+console.log('Selected categories:', selectedNewsCategories);
+console.log('Articles loaded:', articles.length);
+Contributing
+Fork the repository
+Create a feature branch (git checkout -b feature/new-feature)
+Commit changes (git commit -am 'Add new feature')
+Push to branch (git push origin feature/new-feature)
+Create a Pull Request
+Development Guidelines
+Follow TypeScript best practices
+Implement proper error handling
+Maintain code documentation
+Include unit tests for new features
+License
+This project is licensed under the MIT License.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Support
+For technical issues or feature requests, please create an issue in the repository or contact the development team.
 
-### Android
+Built with React Native and TypeScript
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
