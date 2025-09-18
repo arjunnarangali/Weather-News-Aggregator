@@ -157,6 +157,26 @@ Include unit tests for new features
 License
 This project is licensed under the MIT License.
 
+
+<div align="center">
+    <img src="./src/appScreenshots/homeScreen.png" alt="Home Screen" width="250">
+    <img src="./src/appScreenshots/locationPermission.png" alt="Location Permission" 
+  width="250">
+    <img src="./src/appScreenshots/settingsScreen.png" alt="Settings Screen" 
+  width="250">
+  </div>
+
+  <div align="center">
+    <img src="./src/appScreenshots/WeateherThresholdUpdate.png" alt="Weather 
+  Threshold" width="250">
+    <img src="./src/appScreenshots/categoryUpdate.png" alt="Category Update" 
+  width="250">
+    <img src="./src/appScreenshots/disableAllCategory.png" alt="Disable Categories" 
+  width="250">
+  </div>
+
+
+
 Support
 For technical issues or feature requests, please create an issue in the repository or contact the development team.
 
