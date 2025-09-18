@@ -159,21 +159,37 @@ This project is licensed under the MIT License.
 
 
 <div align="center">
-    <img src="./src/appScreenshots/homeScreen.png" alt="Home Screen" width="250">
-    <img src="./src/appScreenshots/locationPermission.png" alt="Location Permission" 
-  width="250">
-    <img src="./src/appScreenshots/settingsScreen.png" alt="Settings Screen" 
-  width="250">
-  </div>
-
-  <div align="center">
-    <img src="./src/appScreenshots/WeateherThresholdUpdate.png" alt="Weather 
-  Threshold" width="250">
-    <img src="./src/appScreenshots/categoryUpdate.png" alt="Category Update" 
-  width="250">
-    <img src="./src/appScreenshots/disableAllCategory.png" alt="Disable Categories" 
-  width="250">
-  </div>
+  <table>
+    <tr>
+      <td align="center">
+        <b>Home Screen</b><br>
+        <img src="./src/appScreenshots/homeScreen.png" alt="Home Screen" width="250">
+      </td>
+      <td align="center">
+        <b>Location Permission</b><br>
+        <img src="./src/appScreenshots/locationPermission.png" alt="Location Permission" width="250">
+      </td>
+      <td align="center">
+        <b>Settings Screen</b><br>
+        <img src="./src/appScreenshots/settingsScreen.png" alt="Settings Screen" width="250">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <b>Weather Threshold</b><br>
+        <img src="./src/appScreenshots/WeateherThresholdUpdate.png" alt="Weather Threshold" width="250">
+      </td>
+      <td align="center">
+        <b>Category Update</b><br>
+        <img src="./src/appScreenshots/categoryUpdate.png" alt="Category Update" width="250">
+      </td>
+      <td align="center">
+        <b>Disable Categories</b><br>
+        <img src="./src/appScreenshots/disableAllCategory.png" alt="Disable Categories" width="250">
+      </td>
+    </tr>
+  </table>
+</div>
 
 
 
